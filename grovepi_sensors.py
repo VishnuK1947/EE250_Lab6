@@ -22,18 +22,18 @@ while True:
 
     
     # TODO: format LCD text according to threshhold
-    thresh = grovepi.digitalRead(ultrasonic_ranger) # thresh between 0, 1023
-    distance = (grovepi.analogRead(potentiometer)/1023.0)*517 # map to between 0, 517
+    distance = grovepi.digitalRead(ultrasonic_ranger) # thresh between 0, 1023
+    thresh = int((grovepi.analogRead(potentiometer)/1023.0)*517) # map to between 0, 517
 
     obj_pres =  "OBJ PRES" if (distance < thresh) else ""
-    setText(f"{thresh}cm {obj_pres}\n{distance}cm")
+    setText(str(thresh) + "cm" +  obj_pres +"\n" + str(distance) + "cm")
 
     if(distance < thresh):
       setRGB(255,0,0)
     else:
       setRGB(0,255,0)
 
-    time.sleep(200)
+    time.sleep(0.3)
   
     
   except IOError:
