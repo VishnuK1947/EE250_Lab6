@@ -31,4 +31,5 @@ why there is a constant delay. What is the delay amount? In addition, what
 communication protocol does the Raspberry Pi use to communicate with the
 Atmega328P on the GrovePi when it tries to read the ultrasonic ranger output
 using the `grovepi` python library?
--  
+-  I2C communication protocol (inter-integrated circuit) is the protocol
+- 30ms in-built delay
